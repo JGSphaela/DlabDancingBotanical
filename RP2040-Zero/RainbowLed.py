@@ -21,12 +21,19 @@ def hsv_to_rgb(h, s, v):
     return int(r*255), int(g*255), int(b*255)
 
 hue = 0.0
+brightness = 1
+index = 1
 while True:
-    rgb = hsv_to_rgb(hue, 1.0, 0.2)  # adjust brightness here (v=0.2)
+    rgb = hsv_to_rgb(hue, 1.0, brightness * 0.01)  # adjust brightness here (v=0.2)
     np[0] = rgb
     np.write()
     hue += 0.01
     if hue >= 1.0:
         hue = 0.0
+    if brightness >= 20:
+        index = -1
+    elif brightness <= 0:
+        index = 1
+    brightness += index
     utime.sleep(0.05)
 

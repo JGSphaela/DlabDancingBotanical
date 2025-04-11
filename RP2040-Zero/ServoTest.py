@@ -12,9 +12,13 @@ def set_angle(angle):
     servo.duty_u16(duty_u16)
 
 while True:
-    for angle in range(0, 181, 1):
-        set_angle(angle)
-        utime.sleep(0.005)
-    for angle in range(180, -1, -1):
-        set_angle(angle)
-        utime.sleep(0.005)
+    # for angle in range(0, 181, 1):
+    #     set_angle(angle)
+    #     utime.sleep(0.003)
+    # for angle in range(180, -1, -1):
+    #     set_angle(angle)
+    #     utime.sleep(0.003)
+    set_angle(0)
+    utime.sleep(1)
+    set_angle(180)
+    utime.sleep(1)
